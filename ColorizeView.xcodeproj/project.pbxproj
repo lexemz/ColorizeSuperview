@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		78FE8C9B26E2A9230080AC9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE8C9A26E2A9230080AC9F /* AppDelegate.swift */; };
 		78FE8C9D26E2A9230080AC9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE8C9C26E2A9230080AC9F /* SceneDelegate.swift */; };
-		78FE8C9F26E2A9230080AC9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE8C9E26E2A9230080AC9F /* ViewController.swift */; };
+		78FE8C9F26E2A9230080AC9F /* ColorizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE8C9E26E2A9230080AC9F /* ColorizeViewController.swift */; };
 		78FE8CA226E2A9230080AC9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78FE8CA026E2A9230080AC9F /* Main.storyboard */; };
 		78FE8CA426E2A9270080AC9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78FE8CA326E2A9270080AC9F /* Assets.xcassets */; };
 		78FE8CA726E2A9270080AC9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78FE8CA526E2A9270080AC9F /* LaunchScreen.storyboard */; };
+		78FE8CB326E2ADB20080AC9F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE8CB226E2ADB20080AC9F /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78FE8C9726E2A9230080AC9F /* ColorizeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorizeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FE8C9A26E2A9230080AC9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78FE8C9C26E2A9230080AC9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78FE8C9E26E2A9230080AC9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78FE8C9E26E2A9230080AC9F /* ColorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorizeViewController.swift; sourceTree = "<group>"; };
 		78FE8CA126E2A9230080AC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78FE8CA326E2A9270080AC9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78FE8CA626E2A9270080AC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78FE8CA826E2A9270080AC9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78FE8CB226E2ADB20080AC9F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ColorizeView/ViewControllers/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,8 @@
 		78FE8CB026E2A9DA0080AC9F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				78FE8C9E26E2A9230080AC9F /* ViewController.swift */,
+				78FE8CB226E2ADB20080AC9F /* SettingsViewController.swift */,
+				78FE8C9E26E2A9230080AC9F /* ColorizeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -169,9 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78FE8C9F26E2A9230080AC9F /* ViewController.swift in Sources */,
+				78FE8C9F26E2A9230080AC9F /* ColorizeViewController.swift in Sources */,
 				78FE8C9B26E2A9230080AC9F /* AppDelegate.swift in Sources */,
 				78FE8C9D26E2A9230080AC9F /* SceneDelegate.swift in Sources */,
+				78FE8CB326E2ADB20080AC9F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
