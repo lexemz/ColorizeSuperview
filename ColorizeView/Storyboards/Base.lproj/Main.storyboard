@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="KFi-IA-KIl">
                         <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="gTu-5s-k3g">
@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1103" y="117"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="jVg-IS-OOf">
@@ -142,17 +142,17 @@
                     </view>
                     <connections>
                         <outlet property="blueSlider" destination="RNM-F0-fN4" id="EYf-ql-mod"/>
-                        <outlet property="blueValue" destination="AcF-JB-qkP" id="rC2-dl-5f4"/>
+                        <outlet property="blueValueLabel" destination="AcF-JB-qkP" id="rC2-dl-5f4"/>
                         <outlet property="colorPreview" destination="oG8-0V-waC" id="kf7-bk-dzV"/>
                         <outlet property="greenSlider" destination="ZoI-d2-eTe" id="v15-du-Qzb"/>
-                        <outlet property="greenValue" destination="gXm-jo-qPC" id="oEN-aZ-n0K"/>
+                        <outlet property="greenValueLabel" destination="gXm-jo-qPC" id="oEN-aZ-n0K"/>
                         <outlet property="redSlider" destination="a3V-z3-kjv" id="fRB-iC-ZKe"/>
-                        <outlet property="redValue" destination="oNC-Px-Ecg" id="902-em-LqQ"/>
+                        <outlet property="redValueLabel" destination="oNC-Px-Ecg" id="902-em-LqQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rN1-9m-FcC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="117"/>
+            <point key="canvasLocation" x="1890" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eBM-h4-dZL">
@@ -175,11 +175,11 @@
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
