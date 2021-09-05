@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var previewView: UIView! {
         didSet {
             previewView.layer.cornerRadius = 10
-            previewView.backgroundColor = colorizeVCColor
+            previewView.backgroundColor = colorizeVCSuperViewColor
         }
     }
 
@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Public properties
     
-    var colorizeVCColor: UIColor!
+    var colorizeVCSuperViewColor: UIColor!
     var delegate: SettingsViewControllerDelegate!
 
     // MARK: - Life cycle methods
@@ -39,9 +39,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redSlider.value = Float(CIColor(color: colorizeVCColor).red)
-        greenSlider.value = Float(CIColor(color: colorizeVCColor).green)
-        blueSlider.value = Float(CIColor(color: colorizeVCColor).blue)
+        redSlider.value = Float(CIColor(color: colorizeVCSuperViewColor).red)
+        greenSlider.value = Float(CIColor(color: colorizeVCSuperViewColor).green)
+        blueSlider.value = Float(CIColor(color: colorizeVCSuperViewColor).blue)
         
         redValueLabel.text = getRoundedStrValue(from: redSlider)
         greenValueLabel.text = getRoundedStrValue(from: greenSlider)

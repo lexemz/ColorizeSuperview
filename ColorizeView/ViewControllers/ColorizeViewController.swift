@@ -21,7 +21,7 @@ class ColorizeViewController: UIViewController {
             return
         }
 
-        settingsVC.colorizeVCColor = superView.backgroundColor
+        settingsVC.colorizeVCSuperViewColor = superView.backgroundColor
         settingsVC.delegate = self
     }
 }
