@@ -149,6 +149,8 @@ extension SettingsViewController: UITextFieldDelegate {
             blueValueLabel.text = getRoundedStrValue(from: blueSlider)
             textField.text = blueValueLabel.text
         }
+        
+        colorizePreview()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
