@@ -39,9 +39,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redSlider.value = colorizeVCColor.redValue
-        greenSlider.value = colorizeVCColor.greenValue
-        blueSlider.value = colorizeVCColor.blueValue
+        redSlider.value = Float(CIColor(color: colorizeVCColor).red)
+        greenSlider.value = Float(CIColor(color: colorizeVCColor).green)
+        blueSlider.value = Float(CIColor(color: colorizeVCColor).blue)
         
         redValueLabel.text = getRoundedStrValue(from: redSlider)
         greenValueLabel.text = getRoundedStrValue(from: greenSlider)
@@ -67,11 +67,13 @@ class SettingsViewController: UIViewController {
             
             redValueLabel.text = redRoundedValue
             redValueField.text = redRoundedValue
+            
         case greenSlider:
             let greenRoundedValue = getRoundedStrValue(from: greenSlider)
             
             greenValueLabel.text = greenRoundedValue
             greenValueField.text = greenRoundedValue
+            
         default:
             let blueRoundedValue = getRoundedStrValue(from: blueSlider)
             
@@ -104,14 +106,6 @@ class SettingsViewController: UIViewController {
             alpha: 1
         )
     }
-}
-
-// MARK: - UIColor chenels values return
-
-extension UIColor {
-    var redValue: Float { Float(CIColor(color: self).red) }
-    var greenValue: Float { Float(CIColor(color: self).green) }
-    var blueValue: Float { Float(CIColor(color: self).blue) }
 }
 
 // MARK: - Keyboard solutions
@@ -158,7 +152,7 @@ extension SettingsViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    func addToolbarOnTextfield(for textfields: UITextField...) {
+    private func addToolbarOnTextfield(for textfields: UITextField...) {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
         
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
