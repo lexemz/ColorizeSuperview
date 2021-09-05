@@ -29,6 +29,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet var greenValueField: UITextField!
     @IBOutlet var blueValueField: UITextField!
     
+    // MARK: - Public properties
+    
     var colorizeVCColor: UIColor!
     var delegate: SettingsViewControllerDelegate!
 
@@ -52,6 +54,7 @@ class SettingsViewController: UIViewController {
         redValueField.delegate = self
         greenValueField.delegate = self
         blueValueField.delegate = self
+        
     }
     
     // MARK: - IBActions
@@ -75,10 +78,10 @@ class SettingsViewController: UIViewController {
             blueValueField.text = blueRoundedValue
         }
         
-        colorizeView()
+        colorizePreview()
     }
     
-    @IBAction func DoneBtnPressed() {
+    @IBAction func doneBtnPressed() {
         guard let previewColor = previewView.backgroundColor else { return }
         
         delegate.setNewUIColor(for: previewColor)
@@ -92,7 +95,7 @@ class SettingsViewController: UIViewController {
         String(format: "%.2f", slider.value)
     }
     
-    private func colorizeView() {
+    private func colorizePreview() {
         previewView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
@@ -110,7 +113,7 @@ extension UIColor {
     var blueValue: Float { Float(CIColor(color: self).blue) }
 }
 
-// MARK: - UITextFieldDelegate
+// MARK: - Keyboard solutions
 
 extension SettingsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {

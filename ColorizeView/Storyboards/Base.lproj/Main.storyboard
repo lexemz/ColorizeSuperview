@@ -158,7 +158,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="DoneBtnPressed" destination="jJw-Rx-WYX" eventType="touchUpInside" id="g5N-Vm-hcV"/>
+                                    <action selector="doneBtnPressed" destination="jJw-Rx-WYX" eventType="touchUpInside" id="g5N-Vm-hcV"/>
                                 </connections>
                             </button>
                         </subviews>
