@@ -157,8 +157,8 @@ extension SettingsViewController: UITextFieldDelegate {
         
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
-        let nextBtn = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(didTapNext))
-        let prevBtn = UIBarButtonItem(title: "Prev", style: .plain, target: self, action: #selector(didTapPrev))
+        let nextBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(didTapNext))
+        let prevBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.up"), style: .plain, target: self, action: #selector(didTapPrev))
         
         toolbar.items = [prevBtn, nextBtn, space, doneBtn]
         toolbar.sizeToFit()
