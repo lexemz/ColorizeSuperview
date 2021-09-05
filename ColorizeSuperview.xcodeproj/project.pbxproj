@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		78FE8C9726E2A9230080AC9F /* ColorizeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorizeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78FE8C9726E2A9230080AC9F /* ColorizeSuperview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorizeSuperview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FE8C9A26E2A9230080AC9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78FE8C9C26E2A9230080AC9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		78FE8C9E26E2A9230080AC9F /* ColorizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorizeViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		78FE8C9826E2A9230080AC9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78FE8C9726E2A9230080AC9F /* ColorizeView.app */,
+				78FE8C9726E2A9230080AC9F /* ColorizeSuperview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78FE8C9626E2A9230080AC9F /* ColorizeView */ = {
+		78FE8C9626E2A9230080AC9F /* ColorizeSuperview */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78FE8CAB26E2A9270080AC9F /* Build configuration list for PBXNativeTarget "ColorizeView" */;
+			buildConfigurationList = 78FE8CAB26E2A9270080AC9F /* Build configuration list for PBXNativeTarget "ColorizeSuperview" */;
 			buildPhases = (
 				78FE8C9326E2A9230080AC9F /* Sources */,
 				78FE8C9426E2A9230080AC9F /* Frameworks */,
@@ -117,9 +117,9 @@
 			);
 			dependencies = (
 			);
-			name = ColorizeView;
+			name = ColorizeSuperview;
 			productName = ColorizeView;
-			productReference = 78FE8C9726E2A9230080AC9F /* ColorizeView.app */;
+			productReference = 78FE8C9726E2A9230080AC9F /* ColorizeSuperview.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -136,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 78FE8C9226E2A9230080AC9F /* Build configuration list for PBXProject "ColorizeView" */;
+			buildConfigurationList = 78FE8C9226E2A9230080AC9F /* Build configuration list for PBXProject "ColorizeSuperview" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -149,7 +149,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78FE8C9626E2A9230080AC9F /* ColorizeView */,
+				78FE8C9626E2A9230080AC9F /* ColorizeSuperview */,
 			);
 		};
 /* End PBXProject section */
@@ -358,7 +358,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		78FE8C9226E2A9230080AC9F /* Build configuration list for PBXProject "ColorizeView" */ = {
+		78FE8C9226E2A9230080AC9F /* Build configuration list for PBXProject "ColorizeSuperview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78FE8CA926E2A9270080AC9F /* Debug */,
@@ -367,7 +367,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78FE8CAB26E2A9270080AC9F /* Build configuration list for PBXNativeTarget "ColorizeView" */ = {
+		78FE8CAB26E2A9270080AC9F /* Build configuration list for PBXNativeTarget "ColorizeSuperview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78FE8CAC26E2A9270080AC9F /* Debug */,
