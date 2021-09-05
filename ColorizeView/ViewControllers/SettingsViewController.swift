@@ -55,6 +55,7 @@ class SettingsViewController: UIViewController {
         greenValueField.delegate = self
         blueValueField.delegate = self
         
+        addToolbarOnTextfield(for: redValueField, greenValueField, blueValueField)
     }
     
     // MARK: - IBActions
@@ -152,6 +153,24 @@ extension SettingsViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func addToolbarOnTextfield(for textfields: UITextField...) {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
+        
+        toolbar.items = [space, doneBtn]
+        toolbar.sizeToFit()
+        
+        for textfield in textfields {
+            textfield.inputAccessoryView = toolbar
+        }
+    }
+    
+    @objc private func didTapDone() {
         view.endEditing(true)
     }
 }
