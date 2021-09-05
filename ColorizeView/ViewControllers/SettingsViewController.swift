@@ -153,12 +153,38 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
     private func addToolbarOnTextfield(for textfields: UITextField...) {
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 50))
+        let toolbar = UIToolbar(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: view.frame.size.width,
+                height: 50
+            )
+        )
         
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
-        let nextBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(didTapNext))
-        let prevBtn = UIBarButtonItem(image: UIImage(systemName: "chevron.up"), style: .plain, target: self, action: #selector(didTapPrev))
+        let space = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        let doneBtn = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(doneBarButtonPressed)
+        )
+        let nextBtn = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.down"),
+            style: .plain,
+            target: self,
+            action: #selector(nextBarButtonPressed)
+        )
+        let prevBtn = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.up"),
+            style: .plain,
+            target: self,
+            action: #selector(prevBarButtonPressed)
+        )
         
         toolbar.items = [prevBtn, nextBtn, space, doneBtn]
         toolbar.sizeToFit()
@@ -168,11 +194,11 @@ extension SettingsViewController: UITextFieldDelegate {
         }
     }
     
-    @objc private func didTapDone() {
+    @objc private func doneBarButtonPressed() {
         view.endEditing(true)
     }
     
-    @objc private func didTapNext() {
+    @objc private func nextBarButtonPressed() {
         if redValueTF.isFirstResponder {
             greenValueTF.becomeFirstResponder()
         } else if greenValueTF.isFirstResponder {
@@ -180,7 +206,7 @@ extension SettingsViewController: UITextFieldDelegate {
         }
     }
     
-    @objc private func didTapPrev() {
+    @objc private func prevBarButtonPressed() {
         if blueValueTF.isFirstResponder {
             greenValueTF.becomeFirstResponder()
         } else if greenValueTF.isFirstResponder {
