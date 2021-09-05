@@ -8,11 +8,10 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
-    @IBOutlet var colorPreview: UIView! {
+    @IBOutlet var previewView: UIView! {
         didSet {
-            colorPreview.layer.cornerRadius = 10
-            colorPreview.backgroundColor = colorizeVCColor
+            previewView.layer.cornerRadius = 10
+            previewView.backgroundColor = colorizeVCColor
         }
     }
 
@@ -24,7 +23,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet var blueValueLabel: UILabel!
     @IBOutlet var greenValueLabel: UILabel!
 
+    @IBOutlet var redValueField: UITextField!
+    @IBOutlet var greenValueField: UITextField!
+    @IBOutlet var blueValueField: UITextField!
+    
     var colorizeVCColor: UIColor!
+    var delegate: SettingsViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +40,40 @@ class SettingsViewController: UIViewController {
         redValueLabel.text = getRoundedStrValue(from: redSlider)
         greenValueLabel.text = getRoundedStrValue(from: greenSlider)
         blueValueLabel.text = getRoundedStrValue(from: blueSlider)
+        
+        redValueField.text = redValueLabel.text
+        greenValueField.text = greenValueLabel.text
+        blueValueField.text = blueValueLabel.text
     }
     
     @IBAction func sliderIsMoved(_ sender: UISlider) {
         switch sender {
         case redSlider:
-            redValueLabel.text = getRoundedStrValue(from: redSlider)
+            let redRoundedValue = getRoundedStrValue(from: redSlider)
+            
+            redValueLabel.text = redRoundedValue
+            redValueField.text = redRoundedValue
         case greenSlider:
-            greenValueLabel.text = getRoundedStrValue(from: greenSlider)
+            let greenRoundedValue = getRoundedStrValue(from: greenSlider)
+            
+            greenValueLabel.text = greenRoundedValue
+            greenValueField.text = greenRoundedValue
         default:
-            blueValueLabel.text = getRoundedStrValue(from: blueSlider)
+            let blueRoundedValue = getRoundedStrValue(from: blueSlider)
+            
+            blueValueLabel.text = blueRoundedValue
+            blueValueField.text = blueRoundedValue
         }
         
         colorizeView()
+    }
+    
+    @IBAction func DoneBtnPressed() {
+        guard let previewColor = previewView.backgroundColor else { return }
+        
+        delegate.setNewUIColor(for: previewColor)
+        
+        dismiss(animated: true, completion: nil)
     }
     
     private func getRoundedStrValue(from slider: UISlider) -> String {
@@ -56,7 +81,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func colorizeView() {
-        colorPreview.backgroundColor = UIColor(
+        previewView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
@@ -65,8 +90,9 @@ class SettingsViewController: UIViewController {
     }
 }
 
+// UIColor chenels values return
 extension UIColor {
-    var redValue: Float { return Float(CIColor(color: self).red) }
-    var greenValue: Float { return Float(CIColor(color: self).green) }
-    var blueValue: Float { return Float(CIColor(color: self).blue) }
+    var redValue: Float { Float(CIColor(color: self).red) }
+    var greenValue: Float { Float(CIColor(color: self).green) }
+    var blueValue: Float { Float(CIColor(color: self).blue) }
 }
