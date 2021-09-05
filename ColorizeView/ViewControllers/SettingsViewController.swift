@@ -203,6 +203,8 @@ extension SettingsViewController: UITextFieldDelegate {
             greenValueTF.becomeFirstResponder()
         } else if greenValueTF.isFirstResponder {
             blueValueTF.becomeFirstResponder()
+        } else {
+            view.endEditing(true)
         }
     }
     
