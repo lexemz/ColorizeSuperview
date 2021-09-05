@@ -46,7 +46,7 @@
                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZzC-7m-yME">
-                                <rect key="frame" x="16" y="181" width="288" height="118"/>
+                                <rect key="frame" x="16" y="161" width="288" height="118"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="ryv-Za-zCl">
                                         <rect key="frame" x="0.0" y="7.5" width="46.5" height="103.5"/>
@@ -168,7 +168,7 @@
                             <constraint firstItem="ZzC-7m-yME" firstAttribute="leading" secondItem="2F3-yk-bvh" secondAttribute="leading" constant="16" id="2rR-Er-rGD"/>
                             <constraint firstItem="oG8-0V-waC" firstAttribute="height" secondItem="ZOJ-Wu-R1w" secondAttribute="height" multiplier="0.142857" id="I58-gv-4HV"/>
                             <constraint firstItem="2F3-yk-bvh" firstAttribute="bottom" secondItem="9Dv-uu-NOT" secondAttribute="bottom" constant="60" id="QxB-1R-LM0"/>
-                            <constraint firstItem="ZzC-7m-yME" firstAttribute="top" secondItem="oG8-0V-waC" secondAttribute="bottom" constant="60" id="VoI-Bd-pjA"/>
+                            <constraint firstItem="ZzC-7m-yME" firstAttribute="top" secondItem="oG8-0V-waC" secondAttribute="bottom" constant="40" id="VoI-Bd-pjA"/>
                             <constraint firstItem="2F3-yk-bvh" firstAttribute="trailing" secondItem="ZzC-7m-yME" secondAttribute="trailing" constant="16" id="hWm-Hj-XjZ"/>
                             <constraint firstItem="oG8-0V-waC" firstAttribute="width" secondItem="ZOJ-Wu-R1w" secondAttribute="width" multiplier="0.57971" id="qgD-6j-YPP"/>
                             <constraint firstItem="oG8-0V-waC" firstAttribute="centerX" secondItem="2F3-yk-bvh" secondAttribute="centerX" id="v1s-gA-A5q"/>
