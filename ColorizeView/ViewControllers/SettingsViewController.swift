@@ -8,6 +8,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    // MARK: -  IBOUtlets
+
     @IBOutlet var previewView: UIView! {
         didSet {
             previewView.layer.cornerRadius = 10
@@ -30,6 +32,8 @@ class SettingsViewController: UIViewController {
     var colorizeVCColor: UIColor!
     var delegate: SettingsViewControllerDelegate!
 
+    // MARK: - Life cycle methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +48,13 @@ class SettingsViewController: UIViewController {
         redValueField.text = redValueLabel.text
         greenValueField.text = greenValueLabel.text
         blueValueField.text = blueValueLabel.text
+        
+        redValueField.delegate = self
+        greenValueField.delegate = self
+        blueValueField.delegate = self
     }
+    
+    // MARK: - IBActions
     
     @IBAction func sliderIsMoved(_ sender: UISlider) {
         switch sender {
@@ -76,6 +86,8 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Private Methods
+    
     private func getRoundedStrValue(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
@@ -90,9 +102,48 @@ class SettingsViewController: UIViewController {
     }
 }
 
-// UIColor chenels values return
+// MARK: - UIColor chenels values return
+
 extension UIColor {
     var redValue: Float { Float(CIColor(color: self).red) }
     var greenValue: Float { Float(CIColor(color: self).green) }
     var blueValue: Float { Float(CIColor(color: self).blue) }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SettingsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let textFieldText = textField.text else { return }
+
+        switch textField {
+        case redValueField:
+            guard let value = Float(textFieldText) else {
+                textField.text = redValueLabel.text
+                return
+            }
+            
+            redSlider.value = value
+            redValueLabel.text = getRoundedStrValue(from: redSlider)
+            textField.text = redValueLabel.text
+        case greenValueField:
+            guard let value = Float(textFieldText) else {
+                textField.text = greenValueLabel.text
+                return
+            }
+            
+            greenSlider.value = value
+            greenValueLabel.text = getRoundedStrValue(from: greenSlider)
+            textField.text = greenValueLabel.text
+        default:
+            guard let value = Float(textFieldText) else {
+                textField.text = blueValueLabel.text
+                return
+            }
+            
+            blueSlider.value = value
+            blueValueLabel.text = getRoundedStrValue(from: blueSlider)
+            textField.text = blueValueLabel.text
+        }
+    }
 }
