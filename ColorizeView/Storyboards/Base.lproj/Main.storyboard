@@ -178,15 +178,15 @@
                     </view>
                     <connections>
                         <outlet property="blueSlider" destination="RNM-F0-fN4" id="EYf-ql-mod"/>
-                        <outlet property="blueValueField" destination="xFf-JU-5qV" id="qAj-2m-zhF"/>
                         <outlet property="blueValueLabel" destination="AcF-JB-qkP" id="rC2-dl-5f4"/>
+                        <outlet property="blueValueTF" destination="xFf-JU-5qV" id="qAj-2m-zhF"/>
                         <outlet property="greenSlider" destination="ZoI-d2-eTe" id="v15-du-Qzb"/>
-                        <outlet property="greenValueField" destination="2Yq-cX-3y1" id="q43-zU-bYn"/>
                         <outlet property="greenValueLabel" destination="gXm-jo-qPC" id="oEN-aZ-n0K"/>
+                        <outlet property="greenValueTF" destination="2Yq-cX-3y1" id="q43-zU-bYn"/>
                         <outlet property="previewView" destination="oG8-0V-waC" id="kf7-bk-dzV"/>
                         <outlet property="redSlider" destination="a3V-z3-kjv" id="fRB-iC-ZKe"/>
-                        <outlet property="redValueField" destination="dL3-Ah-DTS" id="X6Y-OL-LnE"/>
                         <outlet property="redValueLabel" destination="oNC-Px-Ecg" id="902-em-LqQ"/>
+                        <outlet property="redValueTF" destination="dL3-Ah-DTS" id="X6Y-OL-LnE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rN1-9m-FcC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

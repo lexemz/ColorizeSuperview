@@ -25,9 +25,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet var blueValueLabel: UILabel!
     @IBOutlet var greenValueLabel: UILabel!
 
-    @IBOutlet var redValueField: UITextField!
-    @IBOutlet var greenValueField: UITextField!
-    @IBOutlet var blueValueField: UITextField!
+    @IBOutlet var redValueTF: UITextField!
+    @IBOutlet var greenValueTF: UITextField!
+    @IBOutlet var blueValueTF: UITextField!
     
     // MARK: - Public properties
     
@@ -47,15 +47,15 @@ class SettingsViewController: UIViewController {
         greenValueLabel.text = getRoundedStrValue(from: greenSlider)
         blueValueLabel.text = getRoundedStrValue(from: blueSlider)
         
-        redValueField.text = redValueLabel.text
-        greenValueField.text = greenValueLabel.text
-        blueValueField.text = blueValueLabel.text
+        redValueTF.text = redValueLabel.text
+        greenValueTF.text = greenValueLabel.text
+        blueValueTF.text = blueValueLabel.text
         
-        redValueField.delegate = self
-        greenValueField.delegate = self
-        blueValueField.delegate = self
+        redValueTF.delegate = self
+        greenValueTF.delegate = self
+        blueValueTF.delegate = self
         
-        addToolbarOnTextfield(for: redValueField, greenValueField, blueValueField)
+        addToolbarOnTextfield(for: redValueTF, greenValueTF, blueValueTF)
     }
     
     // MARK: - IBActions
@@ -66,19 +66,19 @@ class SettingsViewController: UIViewController {
             let redRoundedValue = getRoundedStrValue(from: redSlider)
             
             redValueLabel.text = redRoundedValue
-            redValueField.text = redRoundedValue
+            redValueTF.text = redRoundedValue
             
         case greenSlider:
             let greenRoundedValue = getRoundedStrValue(from: greenSlider)
             
             greenValueLabel.text = greenRoundedValue
-            greenValueField.text = greenRoundedValue
+            greenValueTF.text = greenRoundedValue
             
         default:
             let blueRoundedValue = getRoundedStrValue(from: blueSlider)
             
             blueValueLabel.text = blueRoundedValue
-            blueValueField.text = blueRoundedValue
+            blueValueTF.text = blueRoundedValue
         }
         
         colorizePreview()
@@ -115,7 +115,7 @@ extension SettingsViewController: UITextFieldDelegate {
         guard let textFieldText = textField.text else { return }
 
         switch textField {
-        case redValueField:
+        case redValueTF:
             guard let value = Float(textFieldText) else {
                 textField.text = redValueLabel.text
                 return
@@ -124,7 +124,7 @@ extension SettingsViewController: UITextFieldDelegate {
             redSlider.value = value
             redValueLabel.text = getRoundedStrValue(from: redSlider)
             textField.text = redValueLabel.text
-        case greenValueField:
+        case greenValueTF:
             guard let value = Float(textFieldText) else {
                 textField.text = greenValueLabel.text
                 return
@@ -157,8 +157,10 @@ extension SettingsViewController: UITextFieldDelegate {
         
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
+        let nextBtn = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(didTapNext))
+        let prevBtn = UIBarButtonItem(title: "Prev", style: .plain, target: self, action: #selector(didTapPrev))
         
-        toolbar.items = [space, doneBtn]
+        toolbar.items = [prevBtn, nextBtn, space, doneBtn]
         toolbar.sizeToFit()
         
         for textfield in textfields {
@@ -168,5 +170,21 @@ extension SettingsViewController: UITextFieldDelegate {
     
     @objc private func didTapDone() {
         view.endEditing(true)
+    }
+    
+    @objc private func didTapNext() {
+        if redValueTF.isFirstResponder {
+            greenValueTF.becomeFirstResponder()
+        } else if greenValueTF.isFirstResponder {
+            blueValueTF.becomeFirstResponder()
+        }
+    }
+    
+    @objc private func didTapPrev() {
+        if blueValueTF.isFirstResponder {
+            greenValueTF.becomeFirstResponder()
+        } else if greenValueTF.isFirstResponder {
+            redValueTF.becomeFirstResponder()
+        }
     }
 }
