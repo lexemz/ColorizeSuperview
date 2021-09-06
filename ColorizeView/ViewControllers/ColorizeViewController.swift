@@ -22,6 +22,7 @@ class ColorizeViewController: UIViewController {
     }
 }
 
+// MARK: - ColorDelegate
 extension ColorizeViewController: SettingsViewControllerDelegate {
     func setNewUIColor(for view: UIColor) {
         self.view.backgroundColor = view

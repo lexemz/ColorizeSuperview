@@ -39,9 +39,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        redSlider.value = Float(CIColor(color: colorizeVCSuperViewColor).red)
-        greenSlider.value = Float(CIColor(color: colorizeVCSuperViewColor).green)
-        blueSlider.value = Float(CIColor(color: colorizeVCSuperViewColor).blue)
+        let ciColor = CIColor(color: colorizeVCSuperViewColor)
+        
+        redSlider.value = Float(ciColor.red)
+        greenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
         
         redValueLabel.text = getRoundedStrValue(from: redSlider)
         greenValueLabel.text = getRoundedStrValue(from: greenSlider)
@@ -54,8 +56,6 @@ class SettingsViewController: UIViewController {
         redValueTF.delegate = self
         greenValueTF.delegate = self
         blueValueTF.delegate = self
-        
-        addToolbarOnTextfield(for: redValueTF, greenValueTF, blueValueTF)
     }
     
     // MARK: - IBActions
@@ -89,7 +89,7 @@ class SettingsViewController: UIViewController {
         
         delegate.setNewUIColor(for: previewColor)
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
     // MARK: - Private Methods
@@ -111,6 +111,11 @@ class SettingsViewController: UIViewController {
 // MARK: - Keyboard solutions
 
 extension SettingsViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let textFieldText = textField.text else { return }
 
@@ -121,7 +126,8 @@ extension SettingsViewController: UITextFieldDelegate {
                 return
             }
             
-            redSlider.value = value
+//            redSlider.value = value without animation!
+            redSlider.setValue(value, animated: true)
             redValueLabel.text = getRoundedStrValue(from: redSlider)
             textField.text = redValueLabel.text
         case greenValueTF:
@@ -130,7 +136,7 @@ extension SettingsViewController: UITextFieldDelegate {
                 return
             }
             
-            greenSlider.value = value
+            greenSlider.setValue(value, animated: true)
             greenValueLabel.text = getRoundedStrValue(from: greenSlider)
             textField.text = greenValueLabel.text
         default:
@@ -139,7 +145,7 @@ extension SettingsViewController: UITextFieldDelegate {
                 return
             }
             
-            blueSlider.value = value
+            blueSlider.setValue(value, animated: true)
             blueValueLabel.text = getRoundedStrValue(from: blueSlider)
             textField.text = blueValueLabel.text
         }
@@ -147,20 +153,9 @@ extension SettingsViewController: UITextFieldDelegate {
         colorizePreview()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
-    
-    private func addToolbarOnTextfield(for textfields: UITextField...) {
-        let toolbar = UIToolbar(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: view.frame.size.width,
-                height: 50
-            )
-        )
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
         
         let space = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
@@ -187,11 +182,7 @@ extension SettingsViewController: UITextFieldDelegate {
         )
         
         toolbar.items = [prevBtn, nextBtn, space, doneBtn]
-        toolbar.sizeToFit()
-        
-        for textfield in textfields {
-            textfield.inputAccessoryView = toolbar
-        }
+        textField.inputAccessoryView = toolbar
     }
     
     @objc private func doneBarButtonPressed() {
